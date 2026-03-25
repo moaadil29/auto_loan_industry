@@ -167,30 +167,7 @@ function axNoGrid(){return{ticks:{color:tCol,font:{size:10}},grid:{display:false
 function legCfg(){return{labels:{color:tCol,font:{size:10},boxWidth:10,padding:10}}}
 
 const SLIDES=[
-{id:'cover',label:'Cover',render:()=>`
-<div class="cover-hero">
-  <div class="eyebrow">Capital One · Auto Lending Strategy · March 2026</div>
-  <h1>The U.S. auto loan market<br>is at an <em>inflection point</em></h1>
-  <p>$1.67T in outstanding balances. Delinquencies near a 15-year high. Banks are coming back. EVs are reshaping demand. And Gen Z is entering the market near-prime and digital-first.</p>
-  <div class="meta-row">
-    <div class="meta-item"><div class="ml">Prepared for</div><div class="mv">Auto Lending Strategy Leadership</div></div>
-    <div class="meta-item"><div class="ml">Date</div><div class="mv">March 2026</div></div>
-    <div class="meta-item"><div class="ml">Classification</div><div class="mv">Confidential</div></div>
-  </div>
-  <div class="src-box"><strong>Primary sources:</strong> NY Fed HHDC Q4 2025 &nbsp;·&nbsp; CFPB Consumer Credit Trends Mar 2026 &nbsp;·&nbsp; Experian SAFM Q4 2025 &nbsp;·&nbsp; Capital One 10-K Dec 2023 (SEC EDGAR) &nbsp;·&nbsp; Ally Financial Annual Report 2024 &nbsp;·&nbsp; Fed Reserve Board FEDS Notes Sep 2024 &nbsp;·&nbsp; LendingTree 2026 &nbsp;·&nbsp; Liberty Street Economics Feb 2025</div>
-  <button class="start-btn" onclick="go(1)">Start presentation &rarr;</button>
-</div>`},
 
-{id:'agenda',label:'Story arc',render:()=>`
-<div class="slide-header">
-  <div class="eyebrow">Overview</div>
-  <div class="slide-title">The story in six chapters</div>
-  <div class="slide-subtitle">Each chapter builds on the previous. Together they define Capital One's strategic moment.</div>
-</div>
-<div class="grid-2" style="gap:10px;margin-top:4px">
-${[['01','Market size & growth','$1.67T and decelerating — the easy years are behind us'],['02','Who\'s lending','Banks returned, captives hold new, Capital One owns used'],['03','Credit stress','Delinquencies broad-based — caused by loan size, not rates'],['04','Rates & affordability','Record payments for near-prime — the squeeze is real'],['05','New forces','EVs, Gen Z, and AI are reshaping the product and customer'],['06','What Capital One does next','Six decisions. Three are urgent.']].map(([n,t,b])=>`
-<div class="callout"><div class="callout-dot blue"></div><div class="callout-text"><strong style="font-size:12px">${n} &nbsp;${t}</strong><br>${b}</div></div>`).join('')}
-</div>`},
 
 {id:'mkt',label:'Market size',render:()=>`
 <div class="slide-header">
@@ -541,27 +518,6 @@ after:()=>{
   },options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false}},scales:{x:{...axNoGrid(),ticks:{...axNoGrid().ticks,font:{size:9}}},y:{...ax(),max:50,ticks:{...ax().ticks,callback:v=>v+'%'}},y2:{position:'right',min:0,max:12,grid:{display:false},ticks:{color:C.amber,font:{size:10},callback:v=>v+'%'}}}}});
 }},
 
-{id:'actions',label:'Six actions',render:()=>`
-<div class="slide-header">
-  <div class="eyebrow">Chapter 6 · What Capital One does next</div>
-  <div class="slide-title">Six decisions. Three are urgent.</div>
-  <div class="slide-subtitle">The data points to a clear set of priorities. Urgency and time horizon differ — but all six require a conscious choice.</div>
-</div>
-<div class="action-grid">
-${[
-  {u:'urgent',n:'01',t:'Defend near-prime before banks arrive',b:'Speed is the moat. Sub-10s dealer-point decisioning before WF/JPM get there. They\'re at 730+ today — they\'ll be at 670+ within 18 months.',s:'Experian Q1 2025 · WF Q4 2024 earnings'},
-  {u:'urgent',n:'02',t:'Manage the 2021–23 vintage now',b:'$20.4Bn subprime exposure at peak-price origination. AI-driven early warning before 30 DPD. This is the cheapest loss prevention window available.',s:'CFPB Sep 2022 · Capital One 10-K Dec 2023'},
-  {u:'urgent',n:'03',t:'Stop the refinancing bleed to credit unions',b:'CUs captured 68% of the refinancing surge in Q4 2024. Proactive rate modification for performing near-prime borrowers costs less than the churn.',s:'Experian Q1 2025 SAFM'},
-  {u:'growth',n:'04',t:'Win Gen Z with alternative data underwriting',b:'34.5M near-prime, thin-file borrowers. 71% loyalty from instant approvals. Alt-data unlocks 30–40% more approvals than FICO-only models.',s:'Equifax Jan 2025 · Open Lending 2025'},
-  {u:'watch',n:'05',t:'Make a 2026 EV decision',b:'50% of EVs are leased — Capital One can\'t serve them. Either build telematics residual models for EV loans, or explicitly focus on used/ICE where the moat is already built.',s:'Experian Q4 2024 · CFPB/Fed Apr 2024'},
-  {u:'watch',n:'06',t:'Watch Ally as the bellwether',b:'Ally\'s $39.2Bn originations is the closest public analog. Their NCO trends and dealer feedback are Capital One\'s 12-month leading indicator for near-prime stress.',s:'Ally Financial Annual Report 2024'},
-].map(a=>`<div class="action-card ${a.u}">
-  <div class="ac-num">${a.u==='urgent'?'&#9650; Urgent':a.u==='growth'?'&#10003; Growth':'&#9679; Watch'} &nbsp;&middot;&nbsp; ${a.n}</div>
-  <div class="ac-title">${a.t}</div>
-  <div class="ac-body">${a.b}</div>
-  <div class="ac-src">${a.s}</div>
-</div>`).join('')}
-</div>`},
 ];
 
 let cur=0;
